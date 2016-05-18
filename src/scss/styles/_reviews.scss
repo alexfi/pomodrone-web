@@ -1,0 +1,137 @@
+.reviews {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  text-align: center;
+  list-style: none;
+
+  .dynamic-site & {
+    height: 300px;
+  }
+
+  &__swipe {
+    width: 100%;
+
+    .dynamic-site & {
+      @include vcenter();
+
+      @include max-screen-height($vertical-screen-breakpoint-small) {
+        transform: translateY(-60%);
+      }
+    }
+  }
+
+  &__wrap {
+    position: relative;
+    overflow: hidden;
+  }
+
+  &__row {
+    @include clearfix;
+
+    position: relative;
+    float: left;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__item {
+    display: inline-block;
+    width: 300px;
+    padding: 0 20px;
+    vertical-align: top;
+
+    .static-site & {
+      position: relative;
+      display: block;
+      width: auto;
+      max-width: 500px;
+      padding: 20px;
+      margin: 0 auto;
+    }
+
+    @include max-screen(970px) {
+      &:nth-child(3) {
+        display: none;
+      }
+    }
+
+    @include max-screen(720px) {
+      &:nth-child(2) {
+        display: none;
+      }
+    }
+  }
+
+  &__title {
+    margin: 20px 0;
+    font-size: em(16px);
+    font-weight: normal;
+    color: #fff;
+    text-transform: uppercase;
+  }
+
+  &__body {
+    height: 75px;
+    font-size: em(16px);
+    font-style: italic;
+    font-weight: 300;
+    line-height: 24px;
+    color: rgba(#fff, 0.8);
+
+    .static-site & {
+      height: 50px;
+    }
+  }
+
+  &__author {
+    font-size: em(13px);
+    font-weight: normal;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  &__arrow {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: 10;
+    width: 16px;
+    height: 16px;
+    padding: 30px;
+    margin: 0;
+    cursor: pointer;
+    background: url('../img/arrow--left.svg') center center no-repeat;
+    background-size: 16px 16px;
+    border: 0;
+    outline: none;
+    transform: translateY(-50%);
+
+    @include max-screen-height($vertical-screen-breakpoint-small) {
+      transform: translateY(-60%);
+    }
+
+    .static-site & {
+      display: none;
+    }
+
+    &--right {
+      right: 0;
+      left: auto;
+      background: url('../img/arrow--right.svg') center center no-repeat;
+      background-size: 16px 16px;
+    }
+  }
+}
+
+.stars {
+  &__star {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin: 0 2px;
+    background: url('../img/star.svg') no-repeat;
+    background-size: 100% 100%;
+  }
+}

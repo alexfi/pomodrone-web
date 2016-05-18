@@ -1,0 +1,52 @@
+.section {
+  @include transition(opacity 150ms linear);
+
+  &__content {
+    position: relative;
+    display: block;
+    width: 94%;
+    height: 100%;
+    margin: 0 auto;
+    overflow: auto;
+
+    .dynamic-site & {
+      @include vcenter();
+
+      max-width: 1160px;
+      max-height: 760px;
+
+      @include max-screen-height(760px) {
+        max-height: 600px;
+      }
+    }
+
+    .static-site & {
+      padding: 40px 0;
+    }
+  }
+
+  &__image {
+    display: block;
+    max-width: 600px;
+    margin: 0 auto;
+    margin-top: 40px;
+
+    .dynamic-site & {
+      display: none;
+    }
+  }
+
+  @each $number in ('one', 'two', 'three', 'four', 'five') {
+    &--#{$number} {
+      opacity: 0;
+
+      .slides.#{$number} & {
+        opacity: 1;
+      }
+    }
+  }
+
+  .static-site & {
+    opacity: 1;
+  }
+}

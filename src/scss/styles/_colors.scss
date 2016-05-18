@@ -1,0 +1,82 @@
+$transition-unfold-easing: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+$transition-fold-easing: linear;
+
+$transition-speed: 300ms;
+$transition-delay-x: 420ms;
+$transition-delay-xx: 500ms;
+$transition-delay-xxx: 500ms;
+
+$angle-x: 15deg;
+$angle-xx: 30deg;
+$angle-xxx: 45deg;
+
+$translates-grass: translateX(188px) translateY(100px);
+$translates-blue: translateX(225px) translateY(100px);
+$translates-red: translateX(258px) translateY(150px);
+$translates-breeze: translateX(198px) translateY(150px);
+$translates-green: translateX(240px) translateY(220px);
+$translates-sand: translateX(280px) translateY(220px);
+
+.colors__card {
+  @include transition(transform $transition-speed $transition-fold-easing);
+  transform-origin: center bottom;
+
+  &--grass {
+    transform: $translates-grass;
+  }
+
+  &--blue {
+    transform: $translates-blue;
+  }
+
+  &--red {
+    transform: $translates-red;
+  }
+
+  &--breeze {
+    transform: $translates-breeze;
+  }
+
+  &--green {
+    transform: $translates-green;
+  }
+
+  &--sand {
+    transform: $translates-sand;
+  }
+
+  .visible & {
+    @include transition(transform $transition-speed $transition-unfold-easing);
+
+    &--grass {
+      @include transition-delay($transition-delay-x);
+
+      transform: $translates-grass rotate($angle-x);
+    }
+
+    &--blue {
+      @include transition-delay($transition-delay-x);
+      transform: $translates-blue rotate(-$angle-x);
+    }
+
+    &--red {
+      @include transition-delay($transition-delay-xx);
+      transform: $translates-red rotate(-$angle-xx);
+    }
+
+    &--breeze {
+      @include transition-delay($transition-delay-xx);
+      transform: $translates-breeze rotate($angle-xx);
+    }
+
+    &--green {
+      @include transition-delay($transition-delay-xxx);
+      transform: $translates-green rotate(-$angle-xxx);
+    }
+
+    &--sand {
+      @include transition-delay($transition-delay-xxx);
+      transform: $translates-sand rotate($angle-xxx);
+    }
+  }
+}

@@ -1,0 +1,63 @@
+.love-icon {
+  display: inline-block;
+  width: 54px;
+  height: 45px;
+  margin: 0 25px;
+  vertical-align: middle;
+  background: url('../img/love.svg') no-repeat;
+  background-size: 100% 100%;
+
+  @include max-screen(420px) {
+    display: block;
+    margin: 30px auto;
+  }
+}
+
+.logo {
+  width: 91px;
+  height: 102px;
+  margin: 0 auto 40px;
+  background: url('../img/logo.svg') no-repeat;
+  background-size: 100% 100%;
+
+  @include small-screen() {
+    width: 64px;
+    height: 71px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+}
+
+.app-store-link {
+  display: inline-block;
+  width: 257px;
+  height: 87px;
+  margin-top: 40px;
+  background: url('../img/appstore.svg') no-repeat;
+  background-size: 100% 100%;
+
+  @include small-screen() {
+    width: 180px;
+    height: 61px;
+    margin-top: 30px;
+  }
+
+  &--small {
+    width: 180px;
+    height: 61px;
+    margin-top: 0;
+  }
+}
+
+#fp-nav {
+  opacity: 1;
+  transition: opacity 0.3s linear;
+
+  &.hidden {
+    opacity: 0;
+  }
+
+  .touch & {
+    display: none;
+  }
+}

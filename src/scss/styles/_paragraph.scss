@@ -1,0 +1,89 @@
+$font-size-title: em(32px);
+$font-size-description-normal: em(24px);
+$font-size-description-small: em(20px);
+$font-size-description-x-small: em(18px);
+
+.paragraph {
+  text-align: center;
+
+  &__title {
+    margin: 0 0 25px;
+    font-size: $font-size-title;
+    font-weight: 500;
+    line-height: 1.6;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+
+    @include hdpi() {
+      font-weight: 700;
+    }
+  }
+
+  &__description {
+    margin: 0;
+    font-size: $font-size-description-normal;
+    font-weight: 300;
+    line-height: 1.9;
+
+    @include small-screen() {
+      font-size: $font-size-description-small;
+    }
+
+    @include max-screen(340px) {
+      font-size: $font-size-description-x-small;
+    }
+  }
+
+  .dynamic-site .section--one & {
+    @include vcenter();
+
+    float: right;
+    width: 60%;
+  }
+
+  .dynamic-site .section--two & {
+    @include vcenter();
+
+    float: left;
+    width: 43%;
+  }
+
+  .dynamic-site .section--three & {
+    @include vbottom();
+
+    width: 100%;
+    padding-bottom: 40px;
+
+    @include min-screen-height($vertical-screen-breakpoint-small) {
+      padding-bottom: 110px;
+    }
+  }
+
+  .dynamic-site .section--four & {
+    @include vtop();
+
+    width: 100%;
+
+    @include max-screen-height($vertical-screen-breakpoint-small) {
+      padding-top: 20px;
+    }
+
+    @include screen-height($vertical-screen-breakpoint-small, $vertical-screen-breakpoint-medium) {
+      padding-top: 50px;
+    }
+  }
+
+  .dynamic-site .section--five & {
+    @include vtop();
+
+    width: 100%;
+
+    @include max-screen-height($vertical-screen-breakpoint-small) {
+      padding-top: 20px;
+    }
+
+    @include screen-height($vertical-screen-breakpoint-small, $vertical-screen-breakpoint-medium) {
+      padding-top: 50px;
+    }
+  }
+}

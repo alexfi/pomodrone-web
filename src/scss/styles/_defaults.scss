@@ -1,0 +1,26 @@
+* {
+  box-sizing: border-box;
+  font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body,
+html {
+  min-height: 100vh;
+  font-family: 'Lato', sans-serif;
+  font-size: $font-size-default;
+  color: $color-white;
+  background: $color-body;
+
+  @media (min-width: 800px) {
+    font-size: $font-size-desktop;
+  }
+
+  @media (min-width: 1200px) {
+    font-size: $font-size-desktop-hd;
+  }
+
+  &.dynamic-site {
+    overflow: hidden;
+  }
+}

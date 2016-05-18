@@ -1,0 +1,24 @@
+{
+  "name": "fastshell",
+  "title": "Fiercely quick and opinionated front-ends",
+  "author": "Hossein Karami",
+  "url": "https://HosseinKarami.github.io/fastshell",
+  "version": "1.0.5",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/HosseinKarami/fastshell.git"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.11.1",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-cssnano": "^2.1.0",
+    "gulp-header": "^1.7.1",
+    "gulp-jshint": "^2.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.1.1",
+    "gulp-uglify": "^1.5.1",
+    "jshint": "^2.8.0"
+  }
+}

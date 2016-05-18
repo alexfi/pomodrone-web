@@ -1,0 +1,81 @@
+.iphone {
+  @include transition(opacity 500ms linear);
+
+  z-index: 0;
+
+  &.bring-to-front {
+    z-index: 3;
+
+    .iphone__wrapper {
+      z-index: 3;
+    }
+  }
+
+  .static-site & {
+    display: none;
+  }
+
+  &__wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 0;
+    display: block;
+    width: 94%;
+    height: 100%;
+    margin: 0 auto;
+    overflow: visible;
+    transform: translateX(-50%) translateY(-50%);
+
+    .dynamic-site & {
+      max-width: 1060px;
+      max-height: $vertical-screen-breakpoint-small;
+    }
+  }
+
+  &__viewbox {
+    @include vcenter();
+    @include transition(transform 600ms cubic-bezier(0.215, 0.61, 0.355, 1));
+
+    left: 20px;
+    max-width: 55%;
+    min-height: 583px;
+    overflow: visible !important;
+    transform-origin: 50%;
+
+    @each $number in ('one', 'two', 'three', 'four', 'five') {
+      .#{$number} {
+        @include transition(opacity 300ms linear);
+        opacity: 0;
+      }
+
+      &.#{$number} .#{$number} {
+        opacity: 1;
+      }
+    }
+
+    &.two {
+      transform: translateX(85%) translateY(-50%);
+    }
+
+    &.three {
+      transform: translateX(37%) translateY(-70%) rotate(90deg);
+    }
+
+    &.four {
+      transform: translateX(37%) translateY(-25%);
+
+      @include max-screen-height($vertical-screen-breakpoint-small) {
+        transform: translateX(37%) translateY(-10%);
+      }
+
+      @include screen-height($vertical-screen-breakpoint-small, $vertical-screen-breakpoint-medium) {
+        transform: translateX(37%) translateY(-15%);
+      }
+    }
+
+    &.five {
+      transform: translateX(37%) translateY(-300%);
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "generator-backbone": {
+    "appPath": "app",
+    "appName": "ViewSignup",
+    "testFramework": "mocha",
+    "templateFramework": "lodash"
+  },
+  "generator-mocha": {}
+}
